@@ -1,4 +1,4 @@
-## Predicting Coding Answer Scores with NLP and Machine Learning
+# PART- 1 - Predicting Coding Answer Scores with NLP and Machine Learning
 
 This repository contains a Jupyter Notebook demonstrating how to predict the scores of coding answers using natural language processing (NLP) and machine learning. 
 
@@ -66,5 +66,60 @@ pip install pandas nltk gensim scikit-learn matplotlib
 * **Dataset Expansion:**  Increasing the size and diversity of the dataset (more answers, question types, and features) could improve model performance.
 * **Advanced NLP Techniques:**  Experimenting with more sophisticated NLP techniques, such as deep learning models (LSTMs, Transformers), to potentially further improve accuracy.
 * **Hyperparameter Optimization:**  Utilizing techniques like grid search or random search to fine-tune model hyperparameters for optimal predictions.
+
+
+# PART - 2 - Twitter Entity Sentiment Analysis - Language Modeling and Classification
+
+## Dataset
+We use the Twitter Entity Sentiment Analysis dataset from Kaggle: [Dataset Link](https://www.kaggle.com/datasets/jp797498e/twitter-entity-sentiment-analysis).
+
+## Overview
+This project involves several key steps:
+1. Establishing a preprocessing NLP pipeline.
+2. Encoding data vectors using various methods.
+3. Training multiple classification models.
+4. Evaluating the models using standard metrics.
+5. Interpreting the obtained results.
+
+## Steps Followed
+
+### Part 1: Preprocessing NLP Pipeline
+We begin by preprocessing the text data to make it suitable for modeling. This involves the following steps:
+- **Tokenization**: Splitting text into individual words.
+- **Stemming and Lemmatization**: Reducing words to their base forms.
+- **Removing Stop Words**: Eliminating common words that do not contribute much to the meaning.
+- **Discretization**: Converting continuous data into discrete bins if necessary.
+
+These preprocessing steps ensure that the text data is clean and standardized, which improves the performance of the machine learning models.
+
+### Part 2: Data Encoding
+We use various methods to encode the text data into numerical vectors:
+- **Word2Vec (CBOW, Skip Gram)**: Creates word embeddings that capture semantic relationships between words.
+- **Bag Of Words**: Converts text into a matrix of token counts.
+- **TF-IDF**: Transforms text into a matrix of term frequency-inverse document frequency features.
+
+These encoding methods allow us to represent the textual data numerically, which is necessary for training machine learning models.
+
+### Part 3: Model Training
+We train four different classification models using the Word2Vec embeddings:
+- **Support Vector Machine (SVM)**: A powerful classifier that works well with high-dimensional data.
+- **Naive Bayes**: A simple probabilistic classifier based on applying Bayes' theorem.
+- **Logistic Regression**: A linear model for binary classification tasks.
+- **AdaBoost**: An ensemble learning method that combines multiple weak classifiers to create a strong classifier.
+
+Each model is trained on the training dataset and its performance is evaluated on the testing dataset.
+
+### Part 4: Model Evaluation
+We evaluate the models using standard metrics such as Accuracy, Precision, Recall, and F1 Score. Additionally, we visualize the results using confusion matrices and classification reports.
+
+- **Accuracy**: The proportion of correctly classified instances out of the total instances.
+- **Precision**: The proportion of true positive instances out of the total predicted positive instances.
+- **Recall**: The proportion of true positive instances out of the total actual positive instances.
+- **F1 Score**: The harmonic mean of precision and recall, providing a single metric that balances both.
+
+We compare these metrics across the different models to determine which model performs the best.
+
+### Part 5: Interpretation of Results
+We interpret the results based on the evaluation metrics and visualizations. The model with the highest accuracy, precision, recall, and F1 score is considered the best model for this task. We also discuss any trade-offs or observations that might be relevant.
 
 
