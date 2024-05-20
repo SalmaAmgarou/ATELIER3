@@ -103,7 +103,6 @@ These encoding methods allow us to represent the textual data numerically, which
 ### Part 3: Model Training
 We train four different classification models using the Word2Vec embeddings:
 - **Support Vector Machine (SVM)**: A powerful classifier that works well with high-dimensional data.
-- **Naive Bayes**: A simple probabilistic classifier based on applying Bayes' theorem.
 - **Logistic Regression**: A linear model for binary classification tasks.
 - **AdaBoost**: An ensemble learning method that combines multiple weak classifiers to create a strong classifier.
 
@@ -117,9 +116,48 @@ We evaluate the models using standard metrics such as Accuracy, Precision, Recal
 - **Recall**: The proportion of true positive instances out of the total actual positive instances.
 - **F1 Score**: The harmonic mean of precision and recall, providing a single metric that balances both.
 
-We compare these metrics across the different models to determine which model performs the best.
-
 ### Part 5: Interpretation of Results
-We interpret the results based on the evaluation metrics and visualizations. The model with the highest accuracy, precision, recall, and F1 score is considered the best model for this task. We also discuss any trade-offs or observations that might be relevant.
+
+#### Performance Metrics Summary:
+| Model                | Accuracy | Precision | Recall   | F1 Score |
+|----------------------|----------|-----------|----------|----------|
+| SVM                  | 0.734976 | 0.734821  | 0.717853 | 0.723170 |
+| Logistic Regression  | 0.545276 | 0.522816  | 0.512920 | 0.510031 |
+| AdaBoost             | 0.486818 | 0.460135  | 0.453838 | 0.448339 |
+
+#### Support Vector Machine (SVM):
+- **Accuracy**: 73.50%
+- **Precision**: 73.48%
+- **Recall**: 71.79%
+- **F1 Score**: 72.32%
+
+SVM outperforms the other two models significantly across all metrics. With an accuracy of 73.50%, it indicates that SVM is able to correctly classify a large majority of the instances. The precision and recall values are also high, suggesting that SVM not only captures a good portion of the true positives but also maintains a low false positive rate. The F1 score, which balances precision and recall, further confirms the robustness of the SVM model.
+
+#### Logistic Regression:
+- **Accuracy**: 54.53%
+- **Precision**: 52.28%
+- **Recall**: 51.29%
+- **F1 Score**: 51.00%
+
+Logistic Regression performs moderately, with an accuracy of 54.53%. While it's better than random guessing, its performance is considerably lower than that of SVM. The precision and recall values indicate that the model struggles to capture true positives effectively, and there is a higher rate of false positives compared to SVM. The F1 score reflects a balance between precision and recall but is still much lower than SVM, indicating that Logistic Regression is not as reliable for this dataset.
+
+#### AdaBoost:
+- **Accuracy**: 48.68%
+- **Precision**: 46.01%
+- **Recall**: 45.38%
+- **F1 Score**: 44.83%
+
+AdaBoost has the lowest performance among the three models. With an accuracy of 48.68%, it is barely better than random guessing. The precision, recall, and F1 score are all below 50%, suggesting that AdaBoost struggles significantly to classify the data correctly. This could be due to various factors such as the complexity of the data, insufficient tuning of hyperparameters, or the nature of the dataset itself.
+
+### Conclusion:
+
+**SVM is the best-performing model** among the three, based on all evaluation metrics. Its higher accuracy, precision, recall, and F1 score indicate that it is more effective at classifying the sentiment of tweets in the dataset compared to Logistic Regression and AdaBoost.
+
+### Recommendations:
+1. **Model Selection**: Based on the performance metrics, SVM should be the preferred model for this task.
+2. **Hyperparameter Tuning**: Further tuning of SVM's hyperparameters could potentially improve its performance even more.
+3. **Data Augmentation**: Increasing the amount of training data or applying techniques like oversampling/undersampling could help improve the performance of the other models.
+4. **Feature Engineering**: Experimenting with different feature extraction methods (e.g., n-grams, more sophisticated embeddings) might improve the performance of Logistic Regression and AdaBoost.
+5. **Ensemble Methods**: Combining models using ensemble techniques could potentially lead to better performance than any single model.
 
 
